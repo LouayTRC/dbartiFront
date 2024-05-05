@@ -1,1 +1,70 @@
-<p>favorites works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Youssef Bn Farah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            margin: 20px;
+        }
+        .profile {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .profile-image {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .logout-button {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button class="logout-button">Log Out</button>
+        <div class="profile">
+            <img class="profile-image" src="assets/prof.jpg" alt="Your Image">
+            <h1>Youssef Bn Farah</h1>
+            
+        </div>
+        
+  
+        
+        <!-- You can add your recipes here -->
+    </div>
+
+    <div>
+        <h2>All Saved Recipes</h2>
+        <hr>
+
+
+        <div class="col-3">
+            <div class="card" style="width: 70%; height: 70%;">
+                <img src="assets/x.jpg" class="card-img-top " alt="Recipe Image">
+                <div class="card-body">
+                    <h5 class="card-title">Special Salad Chicken</h5>
+                    <p class="card-text">***** (7 Reviews)</p>
+                    <a href="#" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>
