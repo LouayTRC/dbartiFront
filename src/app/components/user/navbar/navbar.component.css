@@ -1,5 +1,7 @@
 
-  
+#sidebar {
+  position: fixed;
+}
   #sidebar h2 {
     color: #f9f9f9;
   }

@@ -10,10 +10,12 @@
     background-color: #333;
     padding: 20px;
     color: white;
+    position: fixed;
   }
 
   #grand{
     background-color: #f1efef;
+    padding-left: 14%; height: 100vh;
   }
 
  
