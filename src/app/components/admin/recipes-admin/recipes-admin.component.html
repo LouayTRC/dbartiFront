@@ -1,0 +1,100 @@
+<section class="py-3 py-md-5 py-xl-8">
+    <div class="container">
+        <div class="card-header text-center">
+        </div>
+        <div class="card-body">
+
+            <img [src]="rec.pic" style="height: 100px;width:100px;margin-left: 40%;">
+
+            <form [formGroup]="Modif" (ngSubmit)="modifier()">
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Title :</strong>
+                        <div class="d-flex">
+                            <div *ngIf="!t1">{{rec.title}}</div>
+                            <input type="text" formControlName="title" *ngIf="t1">
+                            <i class="fas fa-edit ml-2" *ngIf="!t1" (click)="show(1)" style="cursor: pointer;"></i>
+                            <i class="fas fa-check ml-2" *ngIf="t1" (click)="confirmer(1)"
+                                style="cursor: pointer; color: green; margin-top: 5px;"></i>
+                            <i class="fas fa-times ml-2" *ngIf="t1" (click)="show(1)"
+                                style="cursor: pointer; color: red; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Duration :</strong>
+                        <div class="d-flex">
+                            <div *ngIf="!t2">{{rec.duration}} sec</div>
+                            <input type="text" formControlName="duration" *ngIf="t2">
+                            <i class="fas fa-edit ml-2" *ngIf="!t2" (click)="show(2)" style="cursor: pointer;"></i>
+                            <i class="fas fa-check ml-2" *ngIf="t2" (click)="confirmer(2)"
+                                style="cursor: pointer; color: green; margin-top: 5px;"></i>
+                            <i class="fas fa-times ml-2" *ngIf="t2" (click)="show(2)"
+                                style="cursor: pointer; color: red; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Ingredients :</strong>
+                        <div class="d-flex">
+                            <div *ngIf="!t3">{{rec.ingredients.name}}</div>
+                            <input type="text" formControlName="ingredients" *ngIf="t3">
+                            <i class="fas fa-edit ml-2" *ngIf="!t3" (click)="show(3)" style="cursor: pointer;"></i>
+                            <i class="fas fa-check ml-2" *ngIf="t3" (click)="confirmer(3)"
+                                style="cursor: pointer; color: green; margin-top: 5px;"></i>
+                            <i class="fas fa-times ml-2" *ngIf="t3" (click)="show(3)"
+                                style="cursor: pointer; color: red; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Nombre calories :</strong>
+                        <div class="d-flex">
+                            <div *ngIf="!t4">{{rec.nbCalories}}</div>
+                            <input type="text" formControlName="nbCalories" *ngIf="t4">
+                            <i class="fas fa-edit ml-2" *ngIf="!t4" (click)="show(4)" style="cursor: pointer;"></i>
+                            <i class="fas fa-check ml-2" *ngIf="t4" (click)="confirmer(4)"
+                                style="cursor: pointer; color: green; margin-top: 5px;"></i>
+                            <i class="fas fa-times ml-2" *ngIf="t4" (click)="show(4)"
+                                style="cursor: pointer; color: red; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Category :</strong>
+                        <div class="d-flex">
+                            <div *ngIf="!t5">{{rec.category.name}}</div>
+                            <input type="text" formControlName="category" *ngIf="t5">
+                            <i class="fas fa-edit ml-2" *ngIf="!t5" (click)="show(5)" style="cursor: pointer;"></i>
+                            <i class="fas fa-check ml-2" *ngIf="t5" (click)="confirmer(5)"
+                                style="cursor: pointer; color: green; margin-top: 5px;"></i>
+                            <i class="fas fa-times ml-2" *ngIf="t5" (click)="show(5)"
+                                style="cursor: pointer; color: red; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Description :</strong>
+                        <div class="d-flex">
+                            <div *ngIf="!t6">{{rec.description}}</div>
+                            <input type="text" formControlName="description" *ngIf="t6">
+                            <i class="fas fa-edit ml-2" *ngIf="!t6" (click)="show(6)" style="cursor: pointer;"></i>
+                            <i class="fas fa-check ml-2" *ngIf="t6" (click)="confirmer(6)"
+                                style="cursor: pointer; color: green; margin-top: 5px;"></i>
+                            <i class="fas fa-times ml-2" *ngIf="t6" (click)="show(6)"
+                                style="cursor: pointer; color: red; margin-top: 5px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <br>
+
+            <div class="button-container">
+                <button class="btn btn-success" type="submit">Confirmer modification</button>
+                <button class="btn btn-secondary" (click)="onCloseClick()">Fermer</button>
+            </div>
+
+        </div>
+    </div>
+</section>

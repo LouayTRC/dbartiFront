@@ -1,0 +1,14 @@
+.button-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.button-container button{
+    width: 47%;
+    margin-left: 5%;
+}
+i{
+    margin-left: 5px;
+}
+

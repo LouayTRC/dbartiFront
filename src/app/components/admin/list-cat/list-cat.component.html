@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>Categories</h1>
+<br>
+
+   
+
+    
+<div class="row">
+    
+       
+    <div class="scrolling-wrapper"  #scrollingWrapper>
+
+        <div class="card fixed-card" (click)="openDialog(1,0)"> 
+            <br>
+                <h2  style="font-weight: bolder;">ADD
+                </h2>
+        </div>
+
+
+
+        <div class="card" *ngFor="let c of lesCats">
+
+            
+            <div class="card-overlay">
+                <div class="icon-container">
+                <i class="fas fa-pen fa-lg" style="color: blue;" (click)="openDialog(2,c)"></i>
+
+                <i class="fa-solid fa-trash-can fa-lg" style="color: red;" (click)="delete()"></i>
+                </div>
+
+            </div>
+            <br>
+            <h2>{{c.name}}</h2>
+        </div>
+        
+    </div>
+   
+</div>
+
+<div  class="scrolling-controls ">
+
+    <button class="btn btn-light b-left" (click)="scrollLeft()"> <i class="fa-solid fa-arrow-left fa-l"></i></button>
+    <button class="btn btn-light b-right" (click)="scrollRight()"> <i class="fa-solid fa-arrow-right fa-l"></i></button>
+
+</div>
+
+</div>

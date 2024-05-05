@@ -12,6 +12,21 @@ import { CommunityComponent } from './components/user/community/community.compon
 import { ChefComponent } from './components/user/chef/chef.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { ListRecipesComponent } from './components/admin/list-recipes/list-recipes.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
+import { ProfileComponent } from './components/admin/profile/profile.component';
+import { ModifierProfileComponent } from './components/admin/modifier-profile/modifier-profile.component';
+import { DashbordAdminComponent } from './components/admin/dashbord-admin/dashbord-admin.component';
+import { ListCatComponent } from './components/admin/list-cat/list-cat.component';
+import { AddRecipeComponent } from './components/admin/add-recipe/add-recipe.component';
+import { AddCategoryComponent } from './components/admin/add-category/add-category.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModifierCatComponent } from './components/admin/modifier-cat/modifier-cat.component';
+import { RecipesAdminComponent } from './components/admin/recipes-admin/recipes-admin.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +39,24 @@ import { SignupComponent } from './components/auth/signup/signup.component';
     CommunityComponent,
     ChefComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ListRecipesComponent,
+    ProfileComponent,
+    ModifierProfileComponent,
+    DashbordAdminComponent,
+    ListCatComponent,
+    AddRecipeComponent,
+    AddCategoryComponent,
+    ModifierCatComponent,
+    RecipesAdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

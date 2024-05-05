@@ -1,0 +1,20 @@
+<section class="py-3 py-md-5 py-xl-8">
+    <div class="container" style="align-items: center;">
+        <h1><strong>Add Category</strong></h1>
+        <form [formGroup]="ajoutGroup" class="row g-3" (ngSubmit)="onAjoute()">
+            <div class="col-md-12" >
+                <input type="text" class="form-control form-control-sm" formControlName="name">
+
+            </div>
+            
+            <div class="button-container">
+            
+                <button class="btn btn-primary" [disabled]="ajoutGroup.invalid">Ajouter</button>
+                <button class="btn btn-secondary" (click)="onCloseClick()" >  Fermer</button>
+    
+            </div>
+    
+        </form>
+    </div>
+    
+</section>
