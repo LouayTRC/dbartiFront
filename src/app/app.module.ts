@@ -27,6 +27,7 @@ import { AddCategoryComponent } from './components/admin/add-category/add-catego
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModifierCatComponent } from './components/admin/modifier-cat/modifier-cat.component';
 import { RecipesAdminComponent } from './components/admin/recipes-admin/recipes-admin.component';
+import { AdddetailuserComponent } from './components/user/adddetailuser/adddetailuser.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { RecipesAdminComponent } from './components/admin/recipes-admin/recipes-
     AddRecipeComponent,
     AddCategoryComponent,
     ModifierCatComponent,
-    RecipesAdminComponent
+    RecipesAdminComponent,
+    AdddetailuserComponent
   ],
   imports: [
     BrowserModule,

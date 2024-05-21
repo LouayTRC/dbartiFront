@@ -1,120 +1,74 @@
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid" style="  background: url('assets/food-background.jpeg') no-repeat center center/cover;background-size: 100%; ">
+    
+  
+  <div class="pt-20 rounded-top background-container" >
+  
+  <div class="row" >
         <div id="search" >
             <input type="text" placeholder="Search here..." name="text" class="input">
             <button class="button">
 
-  
                 <i class="fa-solid fa-magnifying-glass"></i>
-              
-                
-              
-              
               </button>
         </div>
     </div>
+
+<div id="prof">
+  <img class="profile-image" src="assets/prof.jpg" alt="Your Image" style="border-radius: 50%;
+  width: 50px;
+  height: 50px;">
+ <p>Youssef</p> 
+
 </div>
 
-
-
 <div>
-    <h2>Learn, Cook & Eat Your Food</h2>
+    <h2 style="text-align: center;color: black;margin: 1%;">Learn, Cook & Eat Your Food</h2>
 
 </div>
 
 <!-- categories -->
 
-<div class="button-container flex-wrap">
-  <ng-container *ngFor="let c of categories" class="col"> 
-    <button class="btn btn-outline-secondary" >{{c.name}}</button>
-  </ng-container>
-    
-</div>
-
-<!-- recipes -->
-
-
-    <!-- recipes bl ng-->
-
-    <!-- <div *ngFor="let a of recipes" class="col-3">
-<div class="card">
-<img src="assets/x.jpg" class="card-img-top " alt="Recipe Image">
-<div class="card-body">
-<h5 class="card-title">Special Salad Chicken</h5>
-<p class="card-text">***** (7 Reviews)</p>
-<a href="#" class="btn btn-primary">View Recipe</a>
-</div>
+<div class="button-container">
+    <button class="btn btn-dark">Pizza</button>
+    <button class="btn btn-dark">Dessert</button>
+    <button class="btn btn-dark">Noodles</button>
+    <button class="btn btn-dark">Tunisian</button>
+    <button class="btn btn-dark">French</button>
+    <button class="btn btn-dark">Italian</button>
 
 </div>
-</div> -->
+</div>
+</div>
+<h2 style="text-align: center;margin: 1%;"><i class="fa-solid fa-bowl-food"></i> Our Newest Recipes <i class="fa-solid fa-bowl-food"></i></h2>
+<hr>
 
-
-<!-- 
-    <div class="col-3">
-        <div class="card">
-            <img src="assets/x.jpg" class="card-img-top " alt="Recipe Image">
-            <div class="card-body">
-                <h5 class="card-title">Special Salad Chicken</h5>
-                <p class="card-text">***** (7 Reviews)</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="col-3">
-        <div class="card">
-            <img src="assets/x.jpg" class="card-img-top " alt="Recipe Image">
-            <div class="card-body">
-                <h5 class="card-title">Special Salad Chicken</h5>
-                <p class="card-text">***** (7 Reviews)</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="col-3">
-        <div class="card">
-            <img src="assets/x.jpg" class="card-img-top " alt="Recipe Image">
-            <div class="card-body">
-                <h5 class="card-title">Special Salad Chicken</h5>
-                <p class="card-text">***** (7 Reviews)</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
-            </div>
-        </div>
-
-    </div> -->
-
-    
-
-
-    <div class="card" *ngFor="let r of recipes">
+<div class="row" style="padding: 10px;height: 100%;width: 100%;">
+    <div class="card" *ngFor="let c of recipes2">
         <div class="content">
           <div class="back">
             <div class="back-content">
-             <img src="assets/x.jpg" style="width: 200px;border-radius: 30%;">
-              <strong style="margin-bottom: 15px;">{{r.title}}</strong>
+             <img [src]="c.pic" style="width: 200px;border-radius: 30%;">
+              <strong style="margin-bottom: 15px;">{{c.title}}</strong>
             
             </div>
           </div>
           <div class="front">
             
             <div class="img">
-                <img src="assets/x.jpg" style="width: 200px;filter: blur(2px);border-radius: 50%;">
+                <img [src]="c.pic"  style="width: 200px;filter: blur(2px);border-radius: 50%;">
             </div>
       
             <div class="front-content">
-              <small class="badge">{{r.category.name}}</small>
+              <small class="badge">{{c.category.name}}</small>
               <div class="description">
                 <div class="title">
                   <p class="title">
-                    <strong>{{r.description}}</strong>
+                    <strong>{{c.title}}</strong>
                   </p>
                   <i class="fa-regular fa-heart"></i>
                 </div>
                 <p class="card-footer">
-                  {{r.duration}} Mins &nbsp; | &nbsp; {{r.nbCalories}} Calories
+                  {{c.duration}}min &nbsp; | &nbsp; 1 Serving
                 </p>
               </div>
             </div>
@@ -124,4 +78,4 @@
     
 
 
-    
+    </div>

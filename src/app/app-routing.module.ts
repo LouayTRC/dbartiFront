@@ -7,12 +7,15 @@ import { ModifierProfileComponent } from './components/admin/modifier-profile/mo
 import { DashbordAdminComponent } from './components/admin/dashbord-admin/dashbord-admin.component';
 import { FavoritesComponent } from './components/user/favorites/favorites.component';
 import { CommunityComponent } from './components/user/community/community.component';
+import { ChefComponent } from './components/user/chef/chef.component';
 
 const routes: Routes = [
   {path:"main",component:MainComponent,children:[
     {path:"recipes",component:RecipesComponent},
     {path:"favorites",component:FavoritesComponent},
     {path:"community",component:CommunityComponent},
+    {path:"chef",component:ChefComponent},
+   
     {path:"",redirectTo:"recipes",pathMatch:"full"}
   ]},
   {path:"dashboard",component:DashbordAdminComponent, children:[ 

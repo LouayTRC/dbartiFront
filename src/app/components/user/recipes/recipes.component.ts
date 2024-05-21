@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category';
+import { Ingredient } from 'src/app/models/ingredient';
 import { Recipe } from 'src/app/models/recipe';
 import { CategoryService } from 'src/app/services/category.service';
 import { RecipeService } from 'src/app/services/recipe.service';
@@ -22,4 +23,16 @@ export class RecipesComponent {
       this.categories=res
     })
   }
+
+
+
+
+  recipes2: Recipe[] = [new Recipe(1, "salad", "mmmmm", [new Ingredient(1,"hrissa"),new Ingredient(1,"egg")], 2, "assets/x.jpg", 4, new Category(9, "lll")),
+  new Recipe(2, "pancake", "mmmmm", [], 2, "assets/pan.jpg", 4, new Category(9, "lll")),
+  new Recipe(3, "spaghetti", "mmmmm", [], 2, "assets/mak.jpeg", 4, new Category(9, "lll")),
+  new Recipe(1, "salad", "mmmmm", [new Ingredient(1,"hrissa"),new Ingredient(1,"egg")], 2, "assets/x.jpg", 4, new Category(9, "lll")),
+  new Recipe(2, "pancake", "mmmmm", [], 2, "assets/pan.jpg", 4, new Category(9, "lll")),
+  new Recipe(3, "spaghetti", "mmmmm", [], 2, "assets/mak.jpeg", 4, new Category(9, "lll")),
+  
+  ]
 }

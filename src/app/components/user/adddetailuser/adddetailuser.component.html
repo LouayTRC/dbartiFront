@@ -1,0 +1,42 @@
+<section class="py-3 py-md-5 py-xl-8">
+    <div class="container">
+        <h1><strong>Add Recipe</strong></h1>
+        <form  class="row g-3" (ngSubmit)="onAjoute()">
+            <div class="col-md-6">
+                <label>fullname:</label>
+                <input type="text" class="form-control form-control-sm" formControlName="fullname">
+
+            </div>
+
+           
+            <div class="col-md-6">
+                <label>username:</label>
+                <input type="number" class="form-control form-control-sm" formControlName="username">
+
+            </div>
+
+            <div class="col-md-6">
+                <label>mail:</label>
+                <input type="mail" class="form-control form-control-sm" formControlName="mail">
+
+            </div>
+
+            <div class="col-md-6">
+                <label>picture:</label>
+                <input type="file" class="form-control form-control-sm" formControlName="mail">
+
+            </div>
+            
+
+                <div class="button-container">
+            
+            <button class="btn btn-primary" [disabled]="ajoutGroup.invalid">Ajouter</button>
+            <button type="reset" class="btn btn-danger" (click)="onReset()"><i class="fa-solid fa-rotate-left"></i>Reset</button>
+            <button class="btn btn-secondary" (click)="onCloseClick()" >  Fermer</button>
+
+        </div>
+
+        </form>
+    </div>
+
+</section>
