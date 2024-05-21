@@ -24,14 +24,11 @@
 
 <!-- categories -->
 
-<div class="button-container">
-    <button class="btn btn-outline-secondary">Pizza</button>
-    <button class="btn btn-outline-secondary">Dessert</button>
-    <button class="btn btn-outline-secondary">Noodles</button>
-    <button class="btn btn-outline-secondary">Tunisian</button>
-    <button class="btn btn-outline-secondary">French</button>
-    <button class="btn btn-outline-secondary">Italian</button>
-
+<div class="button-container flex-wrap">
+  <ng-container *ngFor="let c of categories" class="col"> 
+    <button class="btn btn-outline-secondary" >{{c.name}}</button>
+  </ng-container>
+    
 </div>
 
 <!-- recipes -->
@@ -92,12 +89,12 @@
     
 
 
-    <div class="card">
+    <div class="card" *ngFor="let r of recipes">
         <div class="content">
           <div class="back">
             <div class="back-content">
              <img src="assets/x.jpg" style="width: 200px;border-radius: 30%;">
-              <strong style="margin-bottom: 15px;">Chicken salad</strong>
+              <strong style="margin-bottom: 15px;">{{r.title}}</strong>
             
             </div>
           </div>
@@ -108,16 +105,16 @@
             </div>
       
             <div class="front-content">
-              <small class="badge">salads</small>
+              <small class="badge">{{r.category.name}}</small>
               <div class="description">
                 <div class="title">
                   <p class="title">
-                    <strong>Chiken salad</strong>
+                    <strong>{{r.description}}</strong>
                   </p>
                   <i class="fa-regular fa-heart"></i>
                 </div>
                 <p class="card-footer">
-                  30 Mins &nbsp; | &nbsp; 1 Serving
+                  {{r.duration}} Mins &nbsp; | &nbsp; {{r.nbCalories}} Calories
                 </p>
               </div>
             </div>

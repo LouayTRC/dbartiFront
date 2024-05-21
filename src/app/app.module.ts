@@ -15,7 +15,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { ListRecipesComponent } from './components/admin/list-recipes/list-recipes.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { ProfileComponent } from './components/admin/profile/profile.component';
@@ -56,7 +56,8 @@ import { RecipesAdminComponent } from './components/admin/recipes-admin/recipes-
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

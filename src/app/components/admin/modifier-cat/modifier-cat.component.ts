@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-modifier-cat',
@@ -9,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class ModifierCatComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ModifierCatComponent>,@Inject(MAT_DIALOG_DATA) public cat: any,private fb:FormBuilder){}
+  constructor(public dialogRef: MatDialogRef<ModifierCatComponent>,@Inject(MAT_DIALOG_DATA) public cat: any,private fb:FormBuilder,private cservice:CategoryService){}
 
   Modif!:FormGroup
 
@@ -24,6 +25,10 @@ export class ModifierCatComponent implements OnInit {
   }
 
   modifier(){
+    this.cservice.updateCategory(this.Modif.value).subscribe((res)=>{
+      console.log("resssss",res);
+      
+    })
     this.onCloseClick()
   }
 

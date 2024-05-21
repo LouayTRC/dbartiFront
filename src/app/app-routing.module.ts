@@ -15,7 +15,7 @@ const routes: Routes = [
     {path:"community",component:CommunityComponent},
     {path:"",redirectTo:"recipes",pathMatch:"full"}
   ]},
-  {path:"dashbord",component:DashbordAdminComponent, children:[ 
+  {path:"dashboard",component:DashbordAdminComponent, children:[ 
     {path:"main",component:MainAComponent,title:"Dashbord"},
     {path:"modifAdmin",component:ModifierProfileComponent,title:"Profile"},
     {path:"",redirectTo:"main",pathMatch:"full"}

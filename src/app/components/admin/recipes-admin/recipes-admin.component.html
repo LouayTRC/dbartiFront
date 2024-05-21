@@ -38,7 +38,7 @@
                     <div class="col-md-6">
                         <strong>Ingredients :</strong>
                         <div class="d-flex">
-                            <div *ngIf="!t3">{{rec.ingredients.name}}</div>
+                            <!-- <div *ngIf="!t3">{{rec.ingredients.name}}</div> -->
                             <input type="text" formControlName="ingredients" *ngIf="t3">
                             <i class="fas fa-edit ml-2" *ngIf="!t3" (click)="show(3)" style="cursor: pointer;"></i>
                             <i class="fas fa-check ml-2" *ngIf="t3" (click)="confirmer(3)"

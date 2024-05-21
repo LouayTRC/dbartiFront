@@ -18,14 +18,14 @@
 
 
 
-        <div class="card" *ngFor="let c of lesCats">
+        <div class="card" *ngFor="let c of categories">
 
             
             <div class="card-overlay">
                 <div class="icon-container">
                 <i class="fas fa-pen fa-lg" style="color: blue;" (click)="openDialog(2,c)"></i>
 
-                <i class="fa-solid fa-trash-can fa-lg" style="color: red;" (click)="delete()"></i>
+                <i class="fa-solid fa-trash-can fa-lg" style="color: red;" (click)="deleteCategory(c.id)"></i>
                 </div>
 
             </div>

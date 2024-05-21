@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-add-category',
@@ -9,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddCategoryComponent implements OnInit  {
 
-  constructor(public dialogRef: MatDialogRef<AddCategoryComponent>, private formBuilder: FormBuilder) { }
+  constructor(public dialogRef: MatDialogRef<AddCategoryComponent>, private formBuilder: FormBuilder,private categoryService:CategoryService) { }
 
 
   ajoutGroup!: FormGroup
@@ -21,7 +22,6 @@ export class AddCategoryComponent implements OnInit  {
     this.ajoutGroup = this.formBuilder.group(
 
       {
-        id: [],
         name: ['', Validators.required]
       })
   }
@@ -32,8 +32,11 @@ export class AddCategoryComponent implements OnInit  {
 
 
   onAjoute(){
-
-    this.onCloseClick()
+    this.categoryService.addCategory(this.ajoutGroup.value).subscribe((res)=>{
+      console.log("res",res);
+      this.dialogRef.close(res.res);
+    })
+    
 
   }
 }

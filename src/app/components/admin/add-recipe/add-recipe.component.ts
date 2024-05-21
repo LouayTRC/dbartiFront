@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Category } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -10,13 +12,12 @@ import { Category } from 'src/app/models/category';
 })
 export class AddRecipeComponent implements OnInit  {
 
-  constructor(public dialogRef: MatDialogRef<AddRecipeComponent>,private formBuilder:FormBuilder) {}
+  constructor(public dialogRef: MatDialogRef<AddRecipeComponent>,private formBuilder:FormBuilder,private categoryService:CategoryService,private rservice:RecipeService) {}
 
 
   ajoutGroup!:FormGroup 
 
-  lesCats:Category[]=[new Category(1,"Tunisian"),new Category(2,"Asian"),new Category(3,"Italian")]
-
+  categories!:Category[]
 
   ngOnInit(): void {
     
@@ -25,10 +26,9 @@ export class AddRecipeComponent implements OnInit  {
     this.ajoutGroup= this.formBuilder.group(
       
       {
-        id: [],
         title: ['',Validators.required],
         description :['',Validators.required],
-        ingredients:['',Validators.required],
+        ingredients:[''],
         duration:['',Validators.required],
         pic:[,Validators.required],
         nbCalories:[,Validators.required] ,
@@ -38,8 +38,14 @@ export class AddRecipeComponent implements OnInit  {
       }
     )
 
+    this.getCategories()
 
+  }
 
+  getCategories(){
+    this.categoryService.getAllCategorys().subscribe(res=>{
+      this.categories=res
+    })
   }
 
   onCloseClick(): void {
@@ -51,8 +57,11 @@ export class AddRecipeComponent implements OnInit  {
   }
 
   onAjoute(){
-
-    this.onCloseClick()
+    this.rservice.addRecipe(this.ajoutGroup.value).subscribe((res)=>{
+      console.log("res",res);
+      this.dialogRef.close(res);
+    })
+    
 
   }
 }

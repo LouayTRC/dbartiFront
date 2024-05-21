@@ -5,6 +5,7 @@ import { Recipe } from 'src/app/models/recipe';
 import { AddRecipeComponent } from '../add-recipe/add-recipe.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipesAdminComponent } from '../recipes-admin/recipes-admin.component';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-list-recipes',
@@ -14,15 +15,17 @@ import { RecipesAdminComponent } from '../recipes-admin/recipes-admin.component'
 export class ListRecipesComponent {
 
 
-  recipes: Recipe[] = [new Recipe(1, "pp", "mmmmm", new Ingredient(1, "ll"), 2, "url", 4, new Category(9, "lll")),
-  new Recipe(2, "kk", "mmmmm", new Ingredient(1, "ll"), 2, "url", 4, new Category(9, "lll")),
-  new Recipe(3, "yy", "mmmmm", new Ingredient(1, "ll"), 2, "url", 4, new Category(9, "lll"))
-  ]
+  recipes!: Recipe[]
 
   recipesAfficher: Recipe[]=this.recipes;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,private rservice:RecipeService) { }
 
+  ngOnInit(){
+    this.rservice.getAllRecipes().subscribe((res)=>{
+      this.recipes=res
+    })
+  }
 
   
   filtrer(s:string) {
@@ -68,7 +71,11 @@ export class ListRecipesComponent {
 
     if(x==1)
 
-   { this.dialog.open(AddRecipeComponent);}
+   { this.dialog.open(AddRecipeComponent).afterClosed().subscribe((res)=>{
+    console.log("ff",res);
+    
+    this.recipes.push(res)
+   })}
 
     else{
       this.dialog.open(RecipesAdminComponent,{
