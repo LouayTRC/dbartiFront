@@ -18,6 +18,7 @@ const routes: Routes = [
    
     {path:"",redirectTo:"recipes",pathMatch:"full"}
   ]},
+  
   {path:"dashboard",component:DashbordAdminComponent, children:[ 
     {path:"main",component:MainAComponent,title:"Dashbord"},
     {path:"modifAdmin",component:ModifierProfileComponent,title:"Profile"},
