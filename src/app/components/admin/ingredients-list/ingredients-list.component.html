@@ -1,0 +1,34 @@
+<div class="list-container">
+    <div class="cover-img">
+        <div class="cover-inner">
+            <h3>Ingredients</h3>
+        </div>
+    </div>
+    <div class="content">
+       
+        <form class="add" [formGroup]="ajoutGroup" >
+            
+            <input type="text" name="add" placeholder="Add Ingredient..." formControlName="name">
+            <div class="input-buttons">
+                <div class="add-todo" >
+                    <i class="fas fa-plus add" (click)="onAjoute()"  ></i>
+                </div>
+            </div>
+        </form>
+
+        <form >
+            <input type="text" name="add" placeholder="Search Ingredient..." (input)="filtrer(s.value)" #s>
+        </form>
+        <ul class="todos">
+            <li *ngFor="let i of lesIngAff">
+                
+                <label >
+                    {{i.name}}
+                </label>
+                <i class="far fa-trash-alt delete" style="color: red;" (click)="delete(i.id)"></i>
+            </li>
+           
+        </ul>
+    </div>
+
+</div>
