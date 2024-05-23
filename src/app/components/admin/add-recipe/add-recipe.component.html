@@ -9,7 +9,7 @@
             </div>
 
 
-           
+
             <div class="col-md-6">
                 <label>Duration:</label>
                 <input type="number" class="form-control form-control-sm" formControlName="duration">
@@ -23,20 +23,20 @@
             </div>
             <div class="col-md-6">
                 <label>Photo:</label>
-                <input type="file" class="form-control form-control-sm" formControlName="pic">
+                <input type="file" class="form-control form-control-sm" (change)="onFileChange($event)" accept="image/*">
 
             </div>
 
             <div class="col-md-6">
                 <label>Tutorial:</label>
-                <input type="file" class="form-control form-control-sm" formControlName="tuto">
+                <input type="file" class="form-control form-control-sm" (change)="onFileChange2($event)" accept="video/*">
 
             </div>
 
             <div class="col-md-6" *ngIf="categories!=undefined">
                 <label>Catégorie:</label>
                 <select class="form-select form-select-sm" formControlName="category">
-                    <option *ngFor="let c of categories" [value]="c.id" >{{c.name}}</option>
+                    <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
                 </select>
             </div>
 
@@ -48,13 +48,14 @@
             </div>
 
 
-                <div class="button-container">
-            
-            <button class="btn btn-primary" >Ajouter</button>
-            <button type="reset" class="btn btn-danger" (click)="onReset()"><i class="fa-solid fa-rotate-left"></i>Reset</button>
-            <button class="btn btn-secondary" (click)="onCloseClick()" >  Fermer</button>
+            <div class="button-container">
 
-        </div>
+                <button class="btn btn-primary">Ajouter</button>
+                <button type="reset" class="btn btn-danger" (click)="onReset()"><i
+                        class="fa-solid fa-rotate-left"></i>Reset</button>
+                <button class="btn btn-secondary" (click)="onCloseClick()"> Fermer</button>
+
+            </div>
 
         </form>
     </div>

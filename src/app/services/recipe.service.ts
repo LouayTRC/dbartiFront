@@ -18,4 +18,8 @@ export class RecipeService {
   addRecipe(form:Recipe):Observable<Recipe>{
     return this.http.post<Recipe>(this.baseUrl+"add/",form)
   }
+
+  getRecipeById(id:number):Observable<Recipe>{
+    return this.http.get<Recipe>(`${this.baseUrl}get/${id}/`)
+  }
 }

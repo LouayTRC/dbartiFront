@@ -1,0 +1,22 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">save product :</h5>
+                <button type="button" class="btn-close" (click)="closePopup()" data-bs-dismiss="modal"  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="two" action="" *ngIf="playlists!=undefined">
+                    <h2>my playlists</h2>
+                    <select class="form-select" name="" id="" #playlist >
+                        <option *ngFor="let p of playlists" [value]="p.id" >{{p.title}}</option>
+                    </select><br>
+                    <button class="btn btn-danger"  (click)="addRecipe(playlist.value,data.recipe)">Add Product</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

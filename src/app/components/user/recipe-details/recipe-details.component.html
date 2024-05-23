@@ -1,0 +1,27 @@
+<div class="container" *ngIf="recipe!=undefined">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4" *ngIf="recipe.tuto">
+                <video  controls>
+                    <source [src]="recipe.tuto" type="video/**">
+                </video>
+            </div>
+            <div class="col-md-4">
+                <img [src]="recipe.pic" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title">{{recipe.title}}</h4>
+                    <h5 class="card-title">{{recipe.category.name}}</h5>
+                    <p class="card-text">Description : {{recipe.description}}</p>
+                    <p class="card-text">Duration :{{ recipe.duration}} min</p>
+                    <p class="card-text">Nombre calories : {{ recipe.nbCalories}} cal</p>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-secondary" *ngIf="user" (click)="openSavePopup()">save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn btn-danger" (click)="goRecipes()">Return to Recipes</button>

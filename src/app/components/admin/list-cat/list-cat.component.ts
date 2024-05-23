@@ -68,7 +68,7 @@ export class ListCatComponent {
   deleteCategory(id:Number){
     this.categoryService.deleteCategory(id).subscribe((res)=>{
       console.log("dd",res);
-      
+      this.categories=this.categories.filter((element)=>element.id!=id)
     })
   }
 

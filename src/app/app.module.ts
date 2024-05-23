@@ -28,6 +28,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModifierCatComponent } from './components/admin/modifier-cat/modifier-cat.component';
 import { RecipesAdminComponent } from './components/admin/recipes-admin/recipes-admin.component';
 import { AdddetailuserComponent } from './components/user/adddetailuser/adddetailuser.component';
+import { RecipeDetailsComponent } from './components/user/recipe-details/recipe-details.component';
+import { SaveRecipePopupComponent } from './components/user/save-recipe-popup/save-recipe-popup.component';
+import { FavouritesDetailsComponent } from './components/user/favourites-details/favourites-details.component';
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { environment } from 'environement';
 
 @NgModule({
   declarations: [
@@ -50,7 +56,10 @@ import { AdddetailuserComponent } from './components/user/adddetailuser/adddetai
     AddCategoryComponent,
     ModifierCatComponent,
     RecipesAdminComponent,
-    AdddetailuserComponent
+    AdddetailuserComponent,
+    RecipeDetailsComponent,
+    SaveRecipePopupComponent,
+    FavouritesDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,9 @@ import { AdddetailuserComponent } from './components/user/adddetailuser/adddetai
     MatDialogModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

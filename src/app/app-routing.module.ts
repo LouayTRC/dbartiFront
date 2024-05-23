@@ -8,13 +8,23 @@ import { DashbordAdminComponent } from './components/admin/dashbord-admin/dashbo
 import { FavoritesComponent } from './components/user/favorites/favorites.component';
 import { CommunityComponent } from './components/user/community/community.component';
 import { ChefComponent } from './components/user/chef/chef.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { userGuard } from './guard/user.guard';
+import { RecipeDetailsComponent } from './components/user/recipe-details/recipe-details.component';
+import { FavouritesDetailsComponent } from './components/user/favourites-details/favourites-details.component';
+import { adminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   {path:"main",component:MainComponent,children:[
     {path:"recipes",component:RecipesComponent},
-    {path:"favorites",component:FavoritesComponent},
+    {path:"recipes/:id",component:RecipeDetailsComponent},
+    {path:"favorites",component:FavoritesComponent,canActivate:[userGuard]},
+    {path:"favorites/:id",component:FavouritesDetailsComponent,canActivate:[userGuard]},
     {path:"community",component:CommunityComponent},
     {path:"chef",component:ChefComponent},
+    {path:"login",component:LoginComponent}, 
+    {path:"signup",component:SignupComponent}, 
    
     {path:"",redirectTo:"recipes",pathMatch:"full"}
   ]},
@@ -25,7 +35,7 @@ const routes: Routes = [
     {path:"",redirectTo:"main",pathMatch:"full"}
 
 
-  ]},
+  ],canActivate:[adminGuard]},
   {path:"",redirectTo:"main",pathMatch:"full"},
 ];
 

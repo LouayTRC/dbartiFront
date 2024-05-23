@@ -34,7 +34,7 @@ export class AddCategoryComponent implements OnInit  {
   onAjoute(){
     this.categoryService.addCategory(this.ajoutGroup.value).subscribe((res)=>{
       console.log("res",res);
-      this.dialogRef.close(res.res);
+      this.dialogRef.close(res);
     })
     
 

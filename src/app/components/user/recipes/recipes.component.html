@@ -1,81 +1,65 @@
-<div class="container-fluid" style="  background: url('assets/food-background.jpeg') no-repeat center center/cover;background-size: 100%; ">
-    
-  
-  <div class="pt-20 rounded-top background-container" >
-  
-  <div class="row" >
-        <div id="search" >
-            <input type="text" placeholder="Search here..." name="text" class="input">
-            <button class="button">
+<div class="container-fluid"
+  style="  background: url('assets/food-background.jpeg') no-repeat center center/cover;background-size: 100%; ">
 
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-        </div>
-    </div>
 
-<div id="prof">
-  <img class="profile-image" src="assets/prof.jpg" alt="Your Image" style="border-radius: 50%;
-  width: 50px;
-  height: 50px;">
- <p>Youssef</p> 
+  <div class="pt-20 rounded-top background-container">
 
-</div>
+    <div class="row">
+      <div id="search">
+        <input type="text" placeholder="Search here..." name="text" class="input">
+        <button class="button">
 
-<div>
-    <h2 style="text-align: center;color: black;margin: 1%;">Learn, Cook & Eat Your Food</h2>
-
-</div>
-
-<!-- categories -->
-
-<div class="button-container">
-    <button class="btn btn-dark">Pizza</button>
-    <button class="btn btn-dark">Dessert</button>
-    <button class="btn btn-dark">Noodles</button>
-    <button class="btn btn-dark">Tunisian</button>
-    <button class="btn btn-dark">French</button>
-    <button class="btn btn-dark">Italian</button>
-
-</div>
-</div>
-</div>
-<h2 style="text-align: center;margin: 1%;"><i class="fa-solid fa-bowl-food"></i> Our Newest Recipes <i class="fa-solid fa-bowl-food"></i></h2>
-<hr>
-
-<div class="row" style="padding: 10px;height: 100%;width: 100%;">
-    <div class="card" *ngFor="let c of recipes2">
-        <div class="content">
-          <div class="back">
-            <div class="back-content">
-             <img [src]="c.pic" style="width: 200px;border-radius: 30%;">
-              <strong style="margin-bottom: 15px;">{{c.title}}</strong>
-            
-            </div>
-          </div>
-          <div class="front">
-            
-            <div class="img">
-                <img [src]="c.pic"  style="width: 200px;filter: blur(2px);border-radius: 50%;">
-            </div>
-      
-            <div class="front-content">
-              <small class="badge">{{c.category.name}}</small>
-              <div class="description">
-                <div class="title">
-                  <p class="title">
-                    <strong>{{c.title}}</strong>
-                  </p>
-                  <i class="fa-regular fa-heart"></i>
-                </div>
-                <p class="card-footer">
-                  {{c.duration}}min &nbsp; | &nbsp; 1 Serving
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
-    
+    </div>
 
+
+
+    <div>
+      <h2 style="text-align: center;color: black;margin: 1%;">Learn, Cook & Eat Your Food</h2>
 
     </div>
+
+    <!-- categories -->
+
+    <div class="row flex-wrap">
+      <button class="btn btn-dark col-2" *ngFor="let c of categories">{{c.name}}</button>
+    </div>
+  </div>
+</div>
+<h2 style="text-align: center;margin: 1%;"><i class="fa-solid fa-bowl-food"></i> Our Newest Recipes <i
+    class="fa-solid fa-bowl-food"></i></h2>
+<hr>
+<div class="row flex-wrap">
+  <div class="card" *ngFor="let r of recipes">
+    <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+      <img class="w-100" [src]="r.pic"/>
+      <a href="#!">
+        <div class="hover-overlay">
+          <div
+            class="mask"
+            style="background-color: rgba(251, 251, 251, 0.15)"
+          ></div>
+        </div>
+      </a>
+    </div>
+    <div class="card-body">
+      <a
+        class="text-reset" style="text-decoration: none;"
+      >
+        <h5 class="card-title mb-3" >
+          {{r.title}}
+        </h5>
+      </a>
+      <h6 href="" class="text-reset">
+        Description : {{r.description}}
+      </h6>
+      <h6>
+        Duration : {{r.duration}} min
+      </h6>
+      
+    </div>
+    <button class="btn btn-dark" (click)="checkRecipe(r.id)" >Check Recipe</button>
+  </div>  
+</div>

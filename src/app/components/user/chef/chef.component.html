@@ -1,14 +1,18 @@
-<head>
-    <title>Recipe Generator</title>
-   </head>
-   <body>
-    <h1 style="margin-top: 5%;">Chef Dbarti <i class="fa-solid fa-drumstick-bite"></i></h1>
-    <img src="assets/3.png" style="height: 40%;">
-    <form method="POST" action="/">
-     <label for="ingredients"> Enter ingredients (comma-separated):</label>
-     <input type="text" name="ingredients" id="ingredients">
-     <input type="submit" value="Generate Recipe">
-    </form>
-    
-   </body>
-   
+<div class="container">
+    <div class="row">
+        <h1 style="margin-top: 5%;">Chef Dbarti <i class="fa-solid fa-drumstick-bite"></i></h1>
+    </div>
+    <div class="row">
+        <img src="assets/3.png" style="height: 40%;">
+    </div>
+    <div class="row">
+        <form method="POST" action="/">
+            <label for="ingredients"> Ask chef :</label>
+            <input type="text" name="ingredients" id="ingredients" #msg>
+            <button class="btn btn-danger" (click)="sendMessage(msg.value)">Generate Recipe</button>
+        </form>
+    </div>
+    <div class="row">
+        <p *ngFor="let m of messages">{{m}}</p>
+    </div>
+</div>

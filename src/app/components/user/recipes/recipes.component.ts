@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category';
 import { Ingredient } from 'src/app/models/ingredient';
 import { Recipe } from 'src/app/models/recipe';
@@ -13,7 +14,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class RecipesComponent {
   recipes!:Recipe[]
   categories!:Category[]
-  constructor(private rService:RecipeService,private cservice:CategoryService){}
+  constructor(private rService:RecipeService,private cservice:CategoryService,private router:Router){}
 
   ngOnInit(){
     this.rService.getAllRecipes().subscribe((res)=>{
@@ -24,15 +25,9 @@ export class RecipesComponent {
     })
   }
 
+  checkRecipe(id:number){
+    this.router.navigate(["/main/recipes",id])
+  }
 
-
-
-  recipes2: Recipe[] = [new Recipe(1, "salad", "mmmmm", [new Ingredient(1,"hrissa"),new Ingredient(1,"egg")], 2, "assets/x.jpg", 4, new Category(9, "lll")),
-  new Recipe(2, "pancake", "mmmmm", [], 2, "assets/pan.jpg", 4, new Category(9, "lll")),
-  new Recipe(3, "spaghetti", "mmmmm", [], 2, "assets/mak.jpeg", 4, new Category(9, "lll")),
-  new Recipe(1, "salad", "mmmmm", [new Ingredient(1,"hrissa"),new Ingredient(1,"egg")], 2, "assets/x.jpg", 4, new Category(9, "lll")),
-  new Recipe(2, "pancake", "mmmmm", [], 2, "assets/pan.jpg", 4, new Category(9, "lll")),
-  new Recipe(3, "spaghetti", "mmmmm", [], 2, "assets/mak.jpeg", 4, new Category(9, "lll")),
   
-  ]
 }

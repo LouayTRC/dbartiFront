@@ -1,121 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Youssef Bn Farah</title>
-    <style>
-   
-    </style>
-</head>
-<body>
-  <!-- <div class="content1">
-        <button class="logout-button">Log Out</button>
-        <div class="profile">
-            <img class="profile-image" src="assets/prof.jpg" alt="Your Image">
-            <h1>Youssef Bn Farah</h1>
-           
-    
-            
-        </div>
-        <div >
-           
-          
-           
-             
-            
+<div class="container">
+  <form action="">
+      <input type="text" style="width: 200px;" class="form-control" placeholder="playlist Name" #name>
+      <button class="btn btn-danger" (click)="createPlaylist(name.value)">create playlist</button>
+  </form>
+  <h1>Playlists</h1>
+  <div class="row">
+    <div class="cards" *ngIf="favourites!=undefined">
+      <div class="card" style="width: 18rem;" *ngFor="let f of favourites" >
+          <img [src]="f.pic" class="card-img-top"  alt="...">
+          <div class="card-body">
+              <h5 class="card-title">{{f.title}}</h5>
+              <p class="card-text">this list containes {{f.recipes.length}} Recipe</p>
+              <a  class="btn btn-danger" (click)="goFavorite(f.id)">Check list Recipes</a>
+              <button  class="d btn btn-dark" (click)="deletePlaylist(f.id)">delete</button>
           </div>
-  
-        
-        
-    </div>
---> 
-
-
-<div class="row align-items-center">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-      <!-- Bg -->
-      <div class="pt-20 rounded-top" style="background:url(https://bootdey.com/image/480x480/00000/000000) no-repeat; background-size: cover;">
       </div>
-      <div class="card1 rounded-bottom smooth-shadow-sm">
-        <div class="d-flex align-items-center justify-content-between
-          pt-4 pb-6 px-4">
-          <!-- avatar -->
-          <div class="d-flex align-items-center">
-            <div class="avatar-xxl avatar-indicators avatar-online me-2
-              position-relative d-flex justify-content-end
-              align-items-end mt-n10">
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="avatar-xxl
-                rounded-circle border border-2 " alt="Image">
-              <a href="#!" class="position-absolute top-0 right-0 me-2">
-                <img src="https://dashui.codescandy.com/dashuipro/assets/images/svg/checked-mark.svg" alt="Image" class="icon-sm">
-              </a>
-            </div>
-            <!-- content -->
-            <div class="lh-1">
-              <h2 class="mb-0">Flen Fouleni
-                <a href="#!" class="text-decoration-none">
-                </a>
-              </h2>
-              <p class="mb-0 d-block">@imFlen</p>
-            </div>
-          </div>
-          <div>
-            <!-- button -->
-            <button class="btn btn-outline-primary
-              d-none d-md-block" (click)="openDialog(1,0)">Edit Profile</button>
-          </div>
-        </div>
-        <!-- nav -->
-        <ul class="nav nav-lt-tab px-4" id="pills-tab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" href="#"></a>
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
-    
-        <h2 style="margin-top: 2%;font-size: large;">All Saved Recipes</h2>
-<div style="position: absolute; left: 27%; top: 43%;">
-    
-        <input name="search"  placeholder="Search for a recipe" ></div>
-        <hr>
-
- 
-
-    
-
-    <div class="card">
-        <div class="content">
-          <div class="back">
-            <div class="back-content">
-             <img src="assets/x.jpg" style="width: 200px;border-radius: 30%;">
-              <strong style="margin-bottom: 15px;">Chicken salad</strong>
-            
-            </div>
-          </div>
-          <div class="front">
-            
-            <div class="img">
-                <img src="assets/x.jpg" style="width: 200px;filter: blur(2px);border-radius: 50%;">
-            </div>
-      
-            <div class="front-content">
-              <small class="badge">salads</small>
-              <div class="description">
-                <div class="title">
-                  <p class="title">
-                    <strong>Chiken salad</strong>
-                  </p>
-                  <i class="fa-regular fa-heart"></i>
-                </div>
-                <p class="card-footer">
-                  30 Mins &nbsp; | &nbsp; 1 Serving
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-</body>
-</html>
+  </div>
+  
+  
+</div>

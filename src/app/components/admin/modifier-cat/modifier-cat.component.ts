@@ -27,7 +27,7 @@ export class ModifierCatComponent implements OnInit {
   modifier(){
     this.cservice.updateCategory(this.Modif.value).subscribe((res)=>{
       console.log("resssss",res);
-      
+      this.dialogRef.close(res);
     })
     this.onCloseClick()
   }
