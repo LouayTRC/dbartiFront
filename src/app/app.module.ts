@@ -34,6 +34,7 @@ import { FavouritesDetailsComponent } from './components/user/favourites-details
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
 import { environment } from 'environement';
+import { IngredientsListComponent } from './components/admin/ingredients-list/ingredients-list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { environment } from 'environement';
     AdddetailuserComponent,
     RecipeDetailsComponent,
     SaveRecipePopupComponent,
-    FavouritesDetailsComponent
+    FavouritesDetailsComponent,
+    IngredientsListComponent
   ],
   imports: [
     BrowserModule,
