@@ -1,0 +1,20 @@
+<div id="xx">
+    <div class="main">
+        <p class="sign" align="center">Welcome to Dbarti</p>
+        <form class="form1" [formGroup]="signupForm">
+            <input class="un " type="text" align="center" placeholder="Fullname" name="fullname" formControlName="fullname">
+            <input class="pass" type="text" align="center" placeholder="Username" name="username" formControlName="username">
+            <input class="pass" type="text" align="center" placeholder="Mail" name="mail" formControlName="mail">
+            <input class="pass" type="password" align="center" placeholder="Password" name="password" formControlName="password">
+                <label for="formFileLg" class="pass">Photo de profil</label>
+                <input class="input pass rounded-0 border-secondary rounded-5 " id="formFileLg" type="file" (change)="onFileChange($event)" accept="image/*">
+            <button class="submit" align="center" (click)="signup()">Signup</button>
+            <p class="forgot" align="center"><a routerLink="/main/login">Already have account</a></p>
+        </form>
+
+    </div>
+    <div id="slogan">
+        <img src="assets/3.png">
+
+    </div>
+</div>

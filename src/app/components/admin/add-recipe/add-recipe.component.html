@@ -1,0 +1,63 @@
+<section class="py-3 py-md-5 py-xl-8">
+    <div class="container">
+        <h1><strong>Add Recipe</strong></h1>
+        <form [formGroup]="ajoutGroup" class="row g-3" (ngSubmit)="onAjoute()">
+            <div class="col-md-6">
+                <label>Title:</label>
+                <input type="text" class="form-control form-control-sm" formControlName="title">
+
+            </div>
+
+
+
+            <div class="col-md-6">
+                <label>Duration:</label>
+                <input type="number" class="form-control form-control-sm" formControlName="duration">
+
+            </div>
+
+            <div class="col-md-6">
+                <label>Number of calories::</label>
+                <input type="number" class="form-control form-control-sm" formControlName="nbCalories">
+
+            </div>
+            <div class="col-md-6">
+                <label>Photo:</label>
+                <input type="file" class="form-control form-control-sm" (change)="onFileChange($event)" accept="image/*">
+
+            </div>
+
+            <div class="col-md-6">
+                <label>Tutorial:</label>
+                <input type="file" class="form-control form-control-sm" (change)="onFileChange2($event)" accept="video/*">
+
+            </div>
+
+            <div class="col-md-6" *ngIf="categories!=undefined">
+                <label>Catégorie:</label>
+                <select class="form-select form-select-sm" formControlName="category">
+                    <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label>Description:</label>
+                <textarea type="text" class="form-control form-control-sm" formControlName="description"></textarea>
+
+
+            </div>
+
+
+            <div class="button-container">
+
+                <button class="btn btn-primary">Ajouter</button>
+                <button type="reset" class="btn btn-danger" (click)="onReset()"><i
+                        class="fa-solid fa-rotate-left"></i>Reset</button>
+                <button class="btn btn-secondary" (click)="onCloseClick()"> Fermer</button>
+
+            </div>
+
+        </form>
+    </div>
+
+</section>

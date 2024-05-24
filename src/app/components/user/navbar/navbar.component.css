@@ -1,0 +1,33 @@
+
+#sidebar {
+  position: fixed;
+}
+  #sidebar h2 {
+    color: #f9f9f9;
+  }
+  
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #sidebar ul li {
+    margin: 10px 0;
+    background-color: #333;border: none;
+    
+  }
+  
+  #sidebar ul li a {
+    
+    text-decoration: none;color: white;
+  }
+  
+  #sidebar ul li a:hover {
+    color: yellow;
+  }
+
+  #sidebar img {
+    width:150px;
+    height: 150px;
+    
+  }

@@ -1,0 +1,26 @@
+
+
+
+ 
+
+<body>
+    <div id="xx" >
+  <div class="main">
+    <p class="sign" align="center">Welcome to Dbarti</p>
+    <form class="form1" [formGroup]="loginForm">
+            <input class="pass" type="text" align="center" placeholder="Username" name="username" formControlName="username">
+            <input class="pass" type="password" align="center" placeholder="Password" name="password" formControlName="password">
+            <button class="submit" align="center" (click)="login()">Login</button>
+      <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
+      <p class="forgot" align="center"><a style="color: black;" routerLink="/main/signup">Create Account </a></p>
+    </form>   
+                
+    </div>
+    <div id="slogan">
+    <img src="assets/3.png">
+    <a style="text-decoration: underline;">Want to know about us ?</a>
+    
+    </div>
+</div>
+</body>
+

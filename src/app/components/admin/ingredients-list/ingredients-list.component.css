@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:600,700&display=swap');
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/*-------------------- ToDo List -------------------*/
+.list-container {
+  
+  
+  
+  width: 320px;
+  height: 450px;
+  background: #fff;
+  overflow-y: auto;
+}
+
+.list-container::-webkit-scrollbar {
+    display: none; 
+}
+
+/** Header Image **/
+.cover-img {
+
+    position: sticky;
+  top: 0;
+  z-index: 1;
+
+  .cover-inner {
+    background: url('/assets/food-background.jpeg');
+    height: 190px;
+    background-size: cover;
+    background-position: 10% 20%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    
+
+    &::after {
+      background: rgba(255, 255, 255, 0.3);
+      content: "";
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    h3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Nunito', sans-serif;
+      text-transform: uppercase;
+      font-size: 2.8rem;
+      z-index: 10;
+      font-weight: 700;
+    }
+  }
+}
+
+/* Main Content */
+.content {
+  padding: 10px 20px;
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 0 10px 0 5px;
+    border-bottom: 1px solid #8e979c;
+    
+  }
+
+ 
+
+  form>* {
+    background: transparent;
+    border: none;
+    height: 35px;
+    
+    
+  }
+  
+
+  input[type=text] {
+    flex-basis: 80%;
+    padding: 0 5px;
+    font-size: 1.2rem;
+    color: #353A42;
+  }
+
+  input[type=text]:focus {
+    outline: none; 
+    border-color: #8e979c; 
+}
+
+  .input-buttons {
+    
+    flex-basis: 20%;
+    text-align: center;
+    padding: 0px 0 0 10px;
+
+  }
+
+  .input-buttons a {
+    text-decoration: none;
+  }
+
+  .input-buttons i {
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 20px;
+    color: #8e979c;
+  }
+
+  ul.todos {
+    margin-left: 0;
+    padding: 0;
+    list-style: none;
+    height: 220px;
+    overflow-y: auto;
+  }
+
+  li {
+    user-select: none;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+  }
+
+  li i {
+    color: #6C717B;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+
+ 
+ 
+
+ 
+}
+

@@ -1,0 +1,22 @@
+
+  
+
+  
+ 
+  #sidebar {
+    width: 200px;
+    height: 100vh;
+    
+    left: 0;
+    top: 0;
+    background-color: #333;
+    padding: 20px;
+    color: white;
+    position: fixed;
+  }
+
+  #grand{
+    padding-left: 14%; height: 100vh;
+  }
+
+ 
