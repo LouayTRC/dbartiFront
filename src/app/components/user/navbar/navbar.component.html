@@ -9,10 +9,10 @@
     </ul>
 </div>
 <div class="row" *ngIf="!user">
-    <a routerLink="login" class="bg-danger button col">Login</a>
-    <a routerLink="signup" class="bg-dark button col">Signup</a>
+    <a routerLink="login" class="bg-danger btn col text-white">Login</a>
+    <a routerLink="signup" class="bg-dark btn col text-white">Signup</a>
 </div>
 <div>
-    <button *ngIf="user" (click)="logout()">Logout</button>
+    <button *ngIf="user" class="btn btn-danger text-white" (click)="logout()">Logout</button>
 </div>
 </div>

@@ -1,59 +1,35 @@
-<<<<<<< HEAD
 <section style="background-color: #eee;" class="p-1">
-    <h1 style="margin-top: 5%;" class="text-center fs-1 ">Chef Dbarti</h1>
+  <h1 style="margin-top: 5%;" class="text-center fs-1 ">Chef Dbarti</h1>
 
-    <div class="container py-5  ">
-  
-      <div class="row w-100  d-flex justify-content-center">
-        <div class="col-md-6 col-lg-7 col-xl-8  ">
-          <ul class="list-unstyled chat-c   ">
-            <li class="d-flex justify-content-between mb-4" *ngFor="let m of messages">
-              <div class="card " >
-                <div class="card-body">
-                  <p class="mb-0 w-100">
-                    {{m}}
-                  </p>
-                </div>
+  <div class="container py-5  ">
+
+    <div class="row w-100  d-flex justify-content-center">
+      <div class="col-md-6 col-lg-7 col-xl-8  ">
+        <ul class="list-unstyled chat-c   ">
+          <li class="d-flex justify-content-between mb-4" *ngFor="let m of messages">
+            <div class="card " >
+              <div class="card-body">
+                <p class="mb-0 w-100">
+                  {{m}}
+                </p>
+              </div>
+            </div>
+          </li>
+       
+     
+        </ul>
+        <ul class="list-unstyled">
+          <li class="bg-white mb-3">
+              <div>
+                <textarea class="form-control focus-ring focus-ring-warning border-black"  name="ingredients" id="ingredients" #msg rows="4"></textarea>
               </div>
             </li>
-         
-       
-          </ul>
-          <ul class="list-unstyled">
-            <li class="bg-white mb-3">
-                <div>
-                  <textarea class="form-control focus-ring focus-ring-warning border-black"  name="ingredients" id="ingredients" #msg rows="4"></textarea>
-                </div>
-              </li>
-              <button  type="button" (click)="sendMessage(msg.value)" class="btn btn-warning btn-rounded float-end">Send</button>
-    
-          </ul>
-        </div>
-
-      </div>
+            <button  type="button" (click)="sendMessage(msg.value)" class="btn btn-warning btn-rounded float-end">Send</button>
   
-    </div>
-  </section>
+        </ul>
+      </div>
 
+    </div>
 
-
-=======
->>>>>>> 0d856b86134398f240fc456ba1ef733c65bcb611
-<div class="container">
-    <div class="row">
-        <h1 style="margin-top: 5%;">Chef Dbarti <i class="fa-solid fa-drumstick-bite"></i></h1>
-    </div>
-    <div class="row">
-        <img src="assets/3.png" style="height: 40%;">
-    </div>
-    <div class="row">
-        <form method="POST" action="/">
-            <label for="ingredients"> Ask chef :</label>
-            <input type="text" name="ingredients" id="ingredients" #msg>
-            <button class="btn btn-danger" (click)="sendMessage(msg.value)">Generate Recipe</button>
-        </form>
-    </div>
-    <div class="row">
-        <p *ngFor="let m of messages">{{m}}</p>
-    </div>
-</div>
+  </div>
+</section>

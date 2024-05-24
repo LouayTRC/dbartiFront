@@ -23,43 +23,43 @@
 
     <!-- categories -->
 
-    <div class="row flex-wrap">
-      <button class="btn btn-dark col-2" *ngFor="let c of categories">{{c.name}}</button>
+    <div class="container">
+      <div class="row flex-wrap container">
+        <button class="btn btn-dark col-2" *ngFor="let c of categories">{{c.name}}</button>
+      </div>
     </div>
+    
   </div>
 </div>
 <h2 style="text-align: center;margin: 1%;"><i class="fa-solid fa-bowl-food"></i> Our Newest Recipes <i
     class="fa-solid fa-bowl-food"></i></h2>
 <hr>
-<div class="row flex-wrap">
-  <div class="card" *ngFor="let r of recipes">
-    <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-      <img class="w-100" [src]="r.pic"/>
-      <a href="#!">
-        <div class="hover-overlay">
-          <div
-            class="mask"
-            style="background-color: rgba(251, 251, 251, 0.15)"
-          ></div>
-        </div>
-      </a>
+<div class="container">
+  <div class="row flex-wrap">
+    <div class="card col-3" *ngFor="let r of recipes">
+      <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+        <img class="w-100" [src]="r.pic" />
+        <a href="#!">
+          <div class="hover-overlay">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+          </div>
+        </a>
+      </div>
+      <div class="card-body">
+        <a class="text-reset" style="text-decoration: none;">
+          <h5 class="card-title mb-3">
+            {{r.title}}
+          </h5>
+        </a>
+        <h6 href="" class="text-reset">
+          Description : {{r.description}}
+        </h6>
+        <h6>
+          Duration : {{r.duration}} min
+        </h6>
+
+      </div>
+      <button class="btn btn-dark" (click)="checkRecipe(r.id)">Check Recipe</button>
     </div>
-    <div class="card-body">
-      <a
-        class="text-reset" style="text-decoration: none;"
-      >
-        <h5 class="card-title mb-3" >
-          {{r.title}}
-        </h5>
-      </a>
-      <h6 href="" class="text-reset">
-        Description : {{r.description}}
-      </h6>
-      <h6>
-        Duration : {{r.duration}} min
-      </h6>
-      
-    </div>
-    <button class="btn btn-dark" (click)="checkRecipe(r.id)" >Check Recipe</button>
-  </div>  
+  </div>
 </div>

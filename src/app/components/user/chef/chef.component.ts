@@ -11,10 +11,6 @@ export class ChefComponent {
   constructor(private cService:ChatbotService){}
 
   sendMessage(message:String){
-<<<<<<< HEAD
-   
-=======
->>>>>>> 0d856b86134398f240fc456ba1ef733c65bcb611
     this.messages.push(message)
     this.cService.sendMessage(message).subscribe((res)=>{
       console.log("msg",res);
