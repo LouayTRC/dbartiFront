@@ -6,6 +6,7 @@ import { AddRecipeComponent } from '../add-recipe/add-recipe.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipesAdminComponent } from '../recipes-admin/recipes-admin.component';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { IngredientService } from 'src/app/services/ingredient.service';
 
 @Component({
   selector: 'app-list-recipes',
@@ -14,32 +15,29 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class ListRecipesComponent {
 
-
+  textSearch: string = ""
   recipes!: Recipe[]
-
-  recipesAfficher: Recipe[]=this.recipes;
+  ingredients!:Ingredient[]
+  recipesAfficher!: Recipe[]
 
   constructor(private dialog: MatDialog,private rservice:RecipeService) { }
 
   ngOnInit(){
     this.rservice.getAllRecipes().subscribe((res)=>{
       this.recipes=res
+      this.recipesAfficher=structuredClone(this.recipes)
+      
     })
   }
 
   
-  filtrer(s:string) {
+  filter(event: any) {
+    this.recipesAfficher = this.recipes;
 
-    this.recipesAfficher = this.recipes
-
-    if (s) {
-       this.recipesAfficher = this.recipesAfficher.filter(e => e.title.toUpperCase().indexOf(s.toUpperCase()) == 0 )
-      }
-
-
-    
+    if (this.textSearch.trim() !== "") {
+      this.recipesAfficher = this.recipesAfficher.filter(element => element.title.includes(this.textSearch));
+    }
   }
-
 
 
   trier(i: number) {
@@ -74,6 +72,7 @@ export class ListRecipesComponent {
    { this.dialog.open(AddRecipeComponent).afterClosed().subscribe((res)=>{
     console.log("ff",res);
     
+    this.recipesAfficher.push(res)
     this.recipes.push(res)
    })}
 
@@ -84,6 +83,12 @@ export class ListRecipesComponent {
       });
     }
 
+  }
+
+  deleteRecipe(id:number){
+    this.rservice.deleteRecipe(id).subscribe((res)=>{
+      this.recipesAfficher=this.recipesAfficher.filter(element=>element.id!=id)
+    })
   }
 
 

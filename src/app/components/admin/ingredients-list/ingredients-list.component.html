@@ -6,12 +6,12 @@
     </div>
     <div class="content">
        
-        <form class="add" [formGroup]="ajoutGroup" >
+        <form class="add" >
             
-            <input type="text" name="add" placeholder="Add Ingredient..." formControlName="name">
+            <input type="text" name="add"#add placeholder="Add Ingredient..." >
             <div class="input-buttons">
                 <div class="add-todo" >
-                    <i class="fas fa-plus add" (click)="onAjoute()"  ></i>
+                    <i class="fas fa-plus add" (click)="onAjoute(add.value)"  ></i>
                 </div>
             </div>
         </form>

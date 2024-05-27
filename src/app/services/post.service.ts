@@ -30,4 +30,8 @@ export class PostService {
   deleteComment(idP:number,idC:number):Observable<any>{
     return this.http.delete<any>(`${this.baseUrl}delete/${idP}/${idC}`)
   }
+
+  likePost(idP:number):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}like/${idP}/`)
+  }
 }

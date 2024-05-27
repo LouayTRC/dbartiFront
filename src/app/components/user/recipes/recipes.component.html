@@ -6,7 +6,7 @@
 
     <div class="row">
       <div id="search">
-        <input type="text" placeholder="Search here..." name="text" class="input">
+        <input type="text" placeholder="Search here..." name="text" class="input" (keyup)="filter($event)" [value]="textSearch" [(ngModel)]="textSearch">
         <button class="button">
 
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -25,7 +25,7 @@
 
     <div class="container">
       <div class="row flex-wrap container">
-        <button class="btn btn-dark col-2" *ngFor="let c of categories">{{c.name}}</button>
+        <button class="btn btn-dark col-2" *ngFor="let c of categories" (click)="filter2(c)" >{{c.name}}</button>
       </div>
     </div>
     
@@ -36,7 +36,7 @@
 <hr>
 <div class="container">
   <div class="row flex-wrap">
-    <div class="card col-3" *ngFor="let r of recipes">
+    <div class="card col-4" *ngFor="let r of affRecipes">
       <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
         <img class="w-100" [src]="r.pic" />
         <a href="#!">
@@ -47,16 +47,16 @@
       </div>
       <div class="card-body">
         <a class="text-reset" style="text-decoration: none;">
-          <h5 class="card-title mb-3">
+          <h3 class="card-title mb-3">
             {{r.title}}
-          </h5>
+          </h3>
         </a>
-        <h6 href="" class="text-reset">
+        <h5 href="" class="text-reset">
           Description : {{r.description}}
-        </h6>
-        <h6>
+        </h5>
+        <h5>
           Duration : {{r.duration}} min
-        </h6>
+        </h5>
 
       </div>
       <button class="btn btn-dark" (click)="checkRecipe(r.id)">Check Recipe</button>

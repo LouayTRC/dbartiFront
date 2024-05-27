@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { DeleteIngredientComponent } from '../delete-ingredient/delete-ingredient.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Ingredient } from 'src/app/models/ingredient';
+import { IngredientService } from 'src/app/services/ingredient.service';
 
 @Component({
   selector: 'app-ingredients-list',
@@ -10,64 +10,57 @@ import { Ingredient } from 'src/app/models/ingredient';
   styleUrls: ['./ingredients-list.component.css']
 })
 export class IngredientsListComponent {
+  lesIng!: Ingredient[]
+  lesIngAff!: Ingredient[]
+  constructor(private dialog: MatDialog, private iservice: IngredientService) { }
 
-  constructor( private formBuilder: FormBuilder,private dialog: MatDialog) { }
 
 
-  ajoutGroup!: FormGroup
 
   ngOnInit(): void {
 
-
-
-    this.ajoutGroup = this.formBuilder.group(
-
-      {
-        id: [],
-        name: ['', Validators.required]
-      })
+    this.iservice.getAllIngredients().subscribe((res) => {
+      this.lesIng = res
+      this.lesIngAff = structuredClone(this.lesIng)
+    })
   }
 
-  lesIng:Ingredient[] = [
-    new Ingredient(1,"Potato"),new Ingredient(2,"Hrissa"),new Ingredient(3,"Sugar"),new Ingredient(4,"ognion")
-  ];
-
-  lesIngAff:Ingredient[]=this.lesIng
-  
 
 
-  filtrer(s:string) {
+
+
+
+
+
+  filtrer(s: string) {
 
     this.lesIngAff = this.lesIng
 
     if (s) {
-       this.lesIngAff = this.lesIngAff.filter(e => e.name.toUpperCase().indexOf(s.toUpperCase()) == 0 )
-      }
+      this.lesIngAff = this.lesIngAff.filter(e => e.name.toUpperCase().indexOf(s.toUpperCase()) == 0)
+    }
 
 
-    
+
   }
 
-  
-  onAjoute(){
-    if(!this.ajoutGroup.invalid)
-    {this.lesIng.unshift(this.ajoutGroup.value)
-      this.ajoutGroup.reset()
-    this.filtrer("")}
+
+  onAjoute(name:String) {
+    if(name.length!=0){
+      this.iservice.addIng(name).subscribe((res)=>{
+        console.log('res ing ',res);
+        
+        this.lesIngAff.push(res)
+        this.lesIng.push(res)
+      })
+    }
   }
 
-  delete(id:Number){
-    const dialogRef = this.dialog.open(DeleteIngredientComponent);
-    dialogRef.afterClosed().subscribe(x => {
-   
-      if(x!=undefined){
-     
-       this.lesIng= this.lesIng.filter(e => e.id !=id)
-       this.filtrer("")
-       
-
-      }
-    });
+  delete(id: number) {
+    this.iservice.deleteIng(id).subscribe((res) => {
+      this.lesIngAff = this.lesIngAff.filter(element => element.id != id)
+      this.lesIng = this.lesIng.filter(element => element.id != id)
+    })
 
   }
 

@@ -46,6 +46,12 @@
 
 
             </div>
+            <div class="col-md-6">
+                <label>Ingredients :</label>
+                <button class=" btn btn-success col-2 "  *ngFor="let c of ingredients" (click)="chooseIngredient(c)" [ngClass]="{ 'btn-success': selectedIng.indexOf(c)!=-1 }">{{c.name}}</button>
+
+
+            </div>
 
 
             <div class="button-container">

@@ -3,7 +3,9 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Category } from 'src/app/models/category';
+import { Ingredient } from 'src/app/models/ingredient';
 import { CategoryService } from 'src/app/services/category.service';
+import { IngredientService } from 'src/app/services/ingredient.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -13,12 +15,12 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class AddRecipeComponent implements OnInit  {
 
-  constructor(public dialogRef: MatDialogRef<AddRecipeComponent>,private formBuilder:FormBuilder,private categoryService:CategoryService,private rservice:RecipeService,private fireStorage:AngularFireStorage) {}
-
+  constructor(public dialogRef: MatDialogRef<AddRecipeComponent>,private formBuilder:FormBuilder,private categoryService:CategoryService,private rservice:RecipeService,private fireStorage:AngularFireStorage,private iservice:IngredientService) {}
+  ingredients!:Ingredient[]
   file!:File
   file2!:File
   ajoutGroup!:FormGroup 
-
+  selectedIng: Ingredient[]=[]
   categories!:Category[]
 
   ngOnInit(): void {
@@ -30,7 +32,6 @@ export class AddRecipeComponent implements OnInit  {
       {
         title: ['',Validators.required],
         description :['',Validators.required],
-        ingredients:this.formBuilder.array([]) as FormArray,
         duration:['',Validators.required],
         pic:[,Validators.required],
         nbCalories:[,Validators.required] ,
@@ -39,7 +40,9 @@ export class AddRecipeComponent implements OnInit  {
  
       }
     )
-
+    this.iservice.getAllIngredients().subscribe((res)=>{
+      this.ingredients=res
+    })
     this.getCategories()
 
   }
@@ -86,5 +89,13 @@ export class AddRecipeComponent implements OnInit  {
     const upload = await this.fireStorage.upload(path, file);
     const url = await upload.ref.getDownloadURL();
     return url;
+  }
+  chooseIngredient(ingredient: Ingredient) {
+    const index = this.selectedIng.findIndex(item => item.id === ingredient.id);
+    if (index === -1) {
+      this.selectedIng.push(ingredient);
+    } else {
+      this.selectedIng.splice(index, 1);
+    }
   }
 }

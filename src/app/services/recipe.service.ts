@@ -22,4 +22,8 @@ export class RecipeService {
   getRecipeById(id:number):Observable<Recipe>{
     return this.http.get<Recipe>(`${this.baseUrl}get/${id}/`)
   }
+
+  deleteRecipe(id:number):Observable<any>{
+    return this.http.delete<any>(`${this.baseUrl}delete/${id}/`)
+  }
 }

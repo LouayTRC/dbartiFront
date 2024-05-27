@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,7 +15,7 @@ import { SaveRecipePopupComponent } from '../save-recipe-popup/save-recipe-popup
 export class RecipeDetailsComponent {
   recipe!:Recipe
   user!:any
-  constructor(private authService:AuthService,private rService:RecipeService,private active:ActivatedRoute, private dialogRef: MatDialog){}
+  constructor(private authService:AuthService,private rService:RecipeService,private active:ActivatedRoute, private dialogRef: MatDialog,private router:Router){}
 
   ngOnInit(){
     const id=this.active.snapshot.params['id']
@@ -36,6 +36,6 @@ export class RecipeDetailsComponent {
     })
   }
   goRecipes(){
-
+    this.router.navigate(['/main/recipes'])
   }
 }
